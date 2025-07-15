@@ -2,8 +2,6 @@ module github.com/MordaTeam/go-toolbox
 
 go 1.24.2
 
-toolchain go1.24.5
-
 require (
 	github.com/prometheus/client_golang v1.22.0
 	github.com/stretchr/testify v1.10.0
