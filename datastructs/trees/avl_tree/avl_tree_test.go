@@ -26,7 +26,7 @@ func TestInsert(t *testing.T) {
 
 	for _, c := range cases {
 		tree := avl_tree.New[int]()
-		for i := 0; i < int(c.numberOfElements); i++ {
+		for i := range int(c.numberOfElements) {
 			err := tree.Insert(strconv.Itoa(i), i)
 			require.NoError(t, err)
 		}
@@ -38,12 +38,12 @@ func TestRemove(t *testing.T) {
 	const N = 10
 
 	tree := avl_tree.New[int]()
-	for i := 0; i < N; i++ {
+	for i := range N {
 		err := tree.Insert(strconv.Itoa(i), i)
 		require.NoError(t, err)
 	}
 
-	for i := 0; i < N; i++ {
+	for i := range N {
 		err := tree.Remove(strconv.Itoa(i))
 		require.NoError(t, err)
 		require.InDelta(

@@ -1,0 +1,100 @@
+---
+version: "2"
+linters:
+  enable:
+    - asasalint
+    - asciicheck
+    - bidichk
+    - bodyclose
+    - canonicalheader
+    - copyloopvar
+    - durationcheck
+    - errname
+    - errorlint
+    - exptostd
+    - fatcontext
+    - forcetypeassert
+    - gocheckcompilerdirectives
+    - gocognit
+    - inamedparam
+    - intrange
+    - lll
+    - makezero
+    - misspell
+    - musttag
+    - nilnil
+    - noctx
+    - nosprintfhostport
+    # - prealloc
+    - predeclared
+    - reassign
+    - rowserrcheck
+    - sqlclosecheck
+    - testifylint
+    - tparallel
+    - unconvert
+    - unparam
+    - wrapcheck
+    - zerologlint
+  disable:
+    - ineffassign
+  settings:
+    lll:
+      tab-width: 4
+    errcheck:
+      check-type-assertions: true
+    errorlint:
+      errorf: true
+      errorf-multi: true
+      asserts: false
+      comparison: true
+    govet:
+      disable:
+        - shadow
+    makezero:
+      always: true
+    misspell:
+      locale: US
+    staticcheck:
+      checks:
+        - all
+        - SA9003
+        - -S1019
+        - -SA1011
+        - -SA1013
+        - -SA4016
+        - -SA4017
+        - -SA4019
+        - -SA5005
+        - -SA5008
+        - -SA5012
+        - -SA9001
+        - -ST1*
+    tagalign:
+      align: true
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    rules:
+      - path: (.+)\.go$
+        text: DropMsg()
+      - path: '(_test\.go|.*/test/.*)$'
+        linters:
+          - lll
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+severity:
+  default: error
+formatters:
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$

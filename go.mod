@@ -4,6 +4,7 @@ go 1.24.2
 
 require (
 	github.com/prometheus/client_golang v1.22.0
+	github.com/samber/lo v1.51.0
 	github.com/stretchr/testify v1.10.0
 )
 
@@ -18,6 +19,7 @@ require (
 	github.com/prometheus/common v0.62.0 // indirect
 	github.com/prometheus/procfs v0.15.1 // indirect
 	golang.org/x/sys v0.30.0 // indirect
+	golang.org/x/text v0.22.0 // indirect
 	google.golang.org/protobuf v1.36.5 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
