@@ -58,6 +58,15 @@ func HistOptsWithHelp(h string) options.Option[prometheus.HistogramOpts] {
 	}
 }
 
+// Sets custom labels for histogram.
+// Default is empty.
+func HistOptsWithLabels(l prometheus.Labels) options.Option[prometheus.HistogramOpts] {
+	return func(target *prometheus.HistogramOpts) error {
+		target.ConstLabels = l
+		return nil
+	}
+}
+
 // Sets custom buckets for histogram.
 // Default is [100µs, 1ms, 5ms, 10ms, 20ms, 50ms, 100ms].
 func HistOptsWithBuckets(b []float64) options.Option[prometheus.HistogramOpts] {
