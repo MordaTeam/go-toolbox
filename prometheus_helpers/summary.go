@@ -63,6 +63,15 @@ func SummaryOptsWithHelp(h string) options.Option[prometheus.SummaryOpts] {
 	}
 }
 
+// Sets custom labels for summary.
+// Default is empty.
+func SummaryOptsWithLabels(l prometheus.Labels) options.Option[prometheus.SummaryOpts] {
+	return func(target *prometheus.SummaryOpts) error {
+		target.ConstLabels = l
+		return nil
+	}
+}
+
 // Sets custom objectives for summary.
 //
 //	Default is map[float64]float64{
